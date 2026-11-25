@@ -10,6 +10,8 @@ PubSubClient mqtt(espClient);
 
 
 void mqttConnect(const char* server, uint16_t port, const char* clientId, const char* username, const char* password) {
+
+  mqtt.setCallback(callback);
   mqtt.setServer(server, port);
   while (!mqtt.connected()) {
     Serial.print("Conctando to MQTT broker...");
@@ -30,9 +32,6 @@ void mqttPublish(const char* topic, const char* payload) {
     return;
   }
   mqtt.publish(topic, payload);
-
-    
-
 }
 
 void mqttSubscribe(const char* topic) {
@@ -49,9 +48,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   for (unsigned int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
-
 }
-
 
 
 

@@ -9,13 +9,12 @@ void setup() {
   Serial.begin(115200);
   setupWiFi();
   
-
 }
 
 void loop() {
-  
-  mqttConnect(mqttServer, 1883, "ESP32Client", mqttUser, mqttPass);
   waitForWiFiConnection();
+  mqttConnect(mqttServer, 1883, "ESP32Client", mqttUser, mqttPass);
+  mqttSubscribe(mqttsubTopic);
   mqtt.loop();
 }
 
