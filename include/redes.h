@@ -10,5 +10,4 @@ const char* networkPswd = "Senai@134";
 
 
 
-
 #endif
