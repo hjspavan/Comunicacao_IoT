@@ -1,25 +1,17 @@
 #include <Arduino.h>
 #include <WiFi.h>
+#include "mqtt.h"
 #include "redes.h"
 
-
-
+void setupWiFi();
 
 void setup() {
-  WiFi.begin(networkName, networkPswd);
-  while (WiFi.status() != WL_CONNECTED) 
-  {
-    Serial.print(".");
-    delay(1000);
-  }
-
-
-  
+  Serial.begin(115200);
+  setupWiFi();
 
 }
 
 void loop() {
-
-
+  mqtt.loop();
 }
 
