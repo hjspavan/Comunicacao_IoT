@@ -3,11 +3,15 @@
 #include "mqtt.h"
 #include "redes.h"
 
+
+
+
 void setupWiFi();
 
 void setup() {
   Serial.begin(115200);
   setupWiFi();
+  
 
 }
 

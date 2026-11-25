@@ -1,8 +1,11 @@
 #include <PubSubClient.h>
+#include <WiFiClient.h>
 #ifndef MQTT_H
 #define MQTT_H
 
-PubSubClient mqtt;
+
+WiFiClient espClient;
+PubSubClient mqtt(espClient);
 
 
 void mqttConnect(const char* server, uint16_t port, const char* clientId, const char* username, const char* password) {
