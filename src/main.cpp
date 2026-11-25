@@ -3,9 +3,6 @@
 #include "mqtt.h"
 #include "redes.h"
 
-
-
-
 void setupWiFi();
 
 void setup() {
@@ -17,5 +14,8 @@ void setup() {
 
 void loop() {
   mqtt.loop();
+  if (!mqtt.connected()) {
+    mqttConnect(mqttServer, 1883, "ESP32Client", "", ""); //* usuario e senha na aws
+  }
 }
 

@@ -1,5 +1,6 @@
 #include <PubSubClient.h>
 #include <WiFiClient.h>
+#include "redes.h"
 #ifndef MQTT_H
 #define MQTT_H
 
