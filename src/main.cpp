@@ -13,9 +13,9 @@ void setup() {
 }
 
 void loop() {
+  
+  mqttConnect(mqttServer, 1883, "ESP32Client", mqttUser, mqttPass);
+  waitForWiFiConnection();
   mqtt.loop();
-  if (!mqtt.connected()) {
-    mqttConnect(mqttServer, 1883, "ESP32Client", "", ""); //* usuario e senha na aws
-  }
 }
 

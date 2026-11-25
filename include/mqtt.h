@@ -35,7 +35,22 @@ void mqttPublish(const char* topic, const char* payload) {
 
 }
 
+void mqttSubscribe(const char* topic) {
+  if (!mqtt.connected()) {
+    Serial.println("MQTT não conectado. Tentando reconectar...");
+    return;
+  }
+  mqtt.subscribe(topic);
+}
 
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensagem recebida ");
+  Serial.print(topic);
+
+  for (unsigned int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+
+}
 
 
 
