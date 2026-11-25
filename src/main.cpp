@@ -5,9 +5,6 @@
 
 
 
-
-
-
 void setup() {
   WiFi.begin(networkName, networkPswd);
   while (WiFi.status() != WL_CONNECTED) 
